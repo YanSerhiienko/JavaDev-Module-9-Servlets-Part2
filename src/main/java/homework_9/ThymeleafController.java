@@ -2,6 +2,7 @@ package homework_9;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,6 @@ import java.io.IOException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 @WebServlet("/time")
@@ -25,8 +25,8 @@ public class ThymeleafController extends HttpServlet {
     public void init() throws ServletException {
         engine = new TemplateEngine();
 
-        FileTemplateResolver resolver = new FileTemplateResolver();
-        resolver.setPrefix("E:\\Projects\\GOIT\\JavaDev\\JavaDev-Module-8-Servlets\\templates\\");
+        ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
+        resolver.setPrefix("/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
         resolver.setOrder(engine.getTemplateResolvers().size());

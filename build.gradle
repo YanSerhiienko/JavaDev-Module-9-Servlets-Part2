@@ -2,6 +2,8 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'war'
+
 group 'org.example'
 version '1.0-SNAPSHOT'
 
